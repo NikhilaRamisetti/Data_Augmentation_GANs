@@ -51,6 +51,10 @@ train_ds = ImageFolder(root=Image_directories,
 train_data = DataLoader(train_ds, batch_size, shuffle=True, num_workers=3, pin_memory=True)  # Utilize multiple CPU cores
 ```
 
+#### **Sneak Peek:**
+A quick look at the generated images by the Generator even before training begins.
+![Alt text](Inputs/__results___11_0.png)
+
 #### **Meet the Discriminator:**
 The code introduces the architecture of the Discriminator network, which critically evaluates generated images.
 ```python3
@@ -86,8 +90,8 @@ discriminator = nn.Sequential(
 
 #### **Meet the Generator:**
 The code reveals the Generator's architecture, responsible for creating beautiful artwork.
-#### **Sneak Peek:**
-A quick look at the generated images by the Generator even before training begins.
+
+
 
 ```python3
 generator = nn.Sequential(
@@ -247,7 +251,15 @@ out = cv2.VideoWriter(vid_fname,fourcc, 1.0, (640,480))
 out.release()
 print("DONE!")
 ```
+### **In the beginning**
+![Alt text](outputs/generated=images-0000.png) 
 
+### **Through the way**
+![Alt text](outputs/generated=images-0007.png) 
+
+### **Almost to the end**
+##### **It can be way better too...**
+![Alt text](outputs/generated=images-0029.png)
 ```python3
 plt.plot(losses_d, '-')
 plt.plot(losses_g, '-')
@@ -256,6 +268,7 @@ plt.ylabel('loss')
 plt.legend(['Discriminator', 'Generator'])
 plt.title('Losses');
 ```
+![Alt text](outputs/output.png) 
 
 ```python3
 plt.plot(real_scores, '-')
@@ -265,7 +278,7 @@ plt.ylabel('score')
 plt.legend(['Real', 'Fake'])
 plt.title('Scores');
 ```
-
+![Alt text](outputs/RealvsFake.png)
 ### References
 1) @article{goodfellow2014generative,
   title={Generative adversarial nets},
